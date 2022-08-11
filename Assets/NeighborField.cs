@@ -28,7 +28,7 @@ public class NeighborField : MonoBehaviour
         int count = 0;
         foreach(GameObject go in neighborsList)
         {
-            if(go.GetComponent<NeighborField>().isAlive == false)
+            if(go.GetComponent<NeighborField>().isAlive == true)
                 count++;
         }
         countLive = count;

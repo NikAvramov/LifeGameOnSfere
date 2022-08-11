@@ -41,12 +41,12 @@ public class CreateFields : MonoBehaviour
             if (lifeOreDead == 0)
             {
                field.GetComponent<Renderer>().material = isDead;
-               field.GetComponent<NeighborField>().isAlive = true;
+               field.GetComponent<NeighborField>().isAlive = false;
             }
             else
             {
                 field.GetComponent<Renderer>().material = isLife;
-                field.GetComponent<NeighborField>().isAlive = false;
+                field.GetComponent<NeighborField>().isAlive = true;
             }
          }
  
@@ -63,18 +63,18 @@ public class CreateFields : MonoBehaviour
             for(int i = 0; i < countField; i++)
             {
                int countLive = sfereFilds[i].GetComponent<NeighborField>().countLive;
-               if (sfereFilds[i].GetComponent<NeighborField>().isAlive == false)
+               if (sfereFilds[i].GetComponent<NeighborField>().isAlive == true)
                {
                     if (countLive > 3 || countLive < 2)
                     {
-                        isAlive[i] = true;
+                        isAlive[i] = false;
                     }
                }
-               if(sfereFilds[i].GetComponent<NeighborField>().isAlive == true)
+               if(sfereFilds[i].GetComponent<NeighborField>().isAlive == false)
                {
                    if (countLive == 3)
                    {
-                        isAlive[i] = false;
+                        isAlive[i] = true;
                    }
                }
             }
@@ -82,12 +82,12 @@ public class CreateFields : MonoBehaviour
             {
                 if (isAlive[i])
                 {
-                    sfereFilds[i].GetComponent<Renderer>().material = isDead;
+                    sfereFilds[i].GetComponent<Renderer>().material = isLife;
                     sfereFilds[i].GetComponent<NeighborField>().isAlive = true;
                 }
                 else
                 {
-                    sfereFilds[i].GetComponent<Renderer>().material = isLife;
+                    sfereFilds[i].GetComponent<Renderer>().material = isDead;
                     sfereFilds[i].GetComponent<NeighborField>().isAlive = false;
                 }
             }
